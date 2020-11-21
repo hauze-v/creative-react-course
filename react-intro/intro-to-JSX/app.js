@@ -12,8 +12,22 @@ function App(){
       <h1>Hello React</h1>
       <p>The time is {time}</p>
       <button onClick={alertHandler} style={buttonStyle}>Submit</button>
+      <Tweet/>
     </div>
   );
 }
 
-ReactDOM.render(React.createElement(App), document.querySelector("#root"));
+// Create another component
+function Tweet(){
+  return (
+    <div>
+      <h2>Tweet</h2>
+      <p>This stuff is pretty cool, no?</p>
+    </div>
+  );
+}
+
+// Render the JSX elements to the screen
+ReactDOM.render(<App />, document.querySelector("#root"));
+
+// In React, we normally have a main App component which holds the smaller, sub-components.
