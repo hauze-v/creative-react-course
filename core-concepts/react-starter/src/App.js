@@ -6,11 +6,17 @@ function App() {
   const name = "Adam Savage";
   const message = "I went to sleep today, wow.";
 
+  // Create event functions
+  const sayHelloHandler = (user) => {
+    console.log(`hello there ${user}`);
+  };
+
   return (
     <div className="App">
+      {/* <CreateTweet />
+      <TweetList name={name} message={message} /> */}
       <h1>Hello React</h1>
-      <CreateTweet />
-      <TweetList name={name} message={message} />
+      <button onClick={() => sayHelloHandler("Mike")}>Click</button>
     </div>
   );
 }
