@@ -3,21 +3,21 @@ import CreateTweet from "./components/CreateTweet";
 import TweetList from "./components/TweetList";
 
 function App() {
-  // Here is the place where you can add normal JS
-  // const [name, setName] = useState("Adam Savage");
-
-  // Create event functions
-  // const sayHelloHandler = (event) => {
-  //   setName("Florin Pop");
-  // };
-
+  // State (can only be passed down, not up)
   const [name, setName] = useState("Adam Savage");
   const message = "hello";
+  const [textInput, setTextInput] = useState("");
+  const [tweets, setTweets] = useState([]);
 
   return (
     <div className="App">
-      <CreateTweet />
-      <TweetList name={name} message={message} />
+      <CreateTweet
+        textInput={textInput}
+        setTextInput={setTextInput}
+        tweets={tweets}
+        setTweets={setTweets}
+      />
+      <TweetList name={name} message={tweets} />
     </div>
   );
 }
