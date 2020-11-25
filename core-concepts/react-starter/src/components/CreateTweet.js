@@ -4,14 +4,21 @@ import React, { useState } from "react";
 const CreateTweet = () => {
   // State (can only be passed down, not up)
   const [textInput, setTextInput] = useState("");
+  const [tweets, setTweets] = useState([]);
 
   // Functions
   const userInputHandler = (event) => {
     setTextInput(event.target.value);
   };
 
+  const submitTweetHandler = (event) => {
+    event.preventDefault(); // prevents the default behavior of a form refreshing the page on submit
+    setTweets([...tweets, textInput]);
+    setTextInput("");
+  };
+
   return (
-    <form>
+    <form onSubmit={submitTweetHandler}>
       <textarea
         value={textInput}
         onChange={userInputHandler}
@@ -19,7 +26,7 @@ const CreateTweet = () => {
         rows="5"
       ></textarea>
       <button onClick={userInputHandler}>Submit</button>
-      <h1 onClick={() => setTextInput("")}>{textInput}</h1>
+      <h1>{textInput}</h1>
     </form>
   );
 };
