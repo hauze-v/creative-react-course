@@ -10,7 +10,7 @@ const CreateTweet = ({ textInput, setTextInput, tweets, setTweets }) => {
   const submitTweetHandler = (event) => {
     event.preventDefault(); // prevents the default behavior of a form refreshing the page on submit
     setTweets([...tweets, textInput]);
-    // setTextInput("");
+    setTextInput("");
   };
 
   return (
@@ -21,7 +21,7 @@ const CreateTweet = ({ textInput, setTextInput, tweets, setTweets }) => {
         cols="50"
         rows="5"
       ></textarea>
-      <button onClick={userInputHandler}>Submit</button>
+      <button>Submit</button>
       <h1>{textInput}</h1>
     </form>
   );
