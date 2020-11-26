@@ -22,7 +22,6 @@ const CreateTweet = ({ textInput, setTextInput, tweets, setTweets }) => {
         rows="5"
       ></textarea>
       <button>Submit</button>
-      <h1>{textInput}</h1>
     </form>
   );
 };

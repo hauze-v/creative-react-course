@@ -2,12 +2,17 @@ import React from "react";
 
 /* When we're working with JSX, you cannot have HTML elements directly next to each other. You must encapsulate everything in a parent div */
 /* The component function will take in an argument props which is an object that contains the properites given from the other component */
-const Tweet = ({ name, message }) => {
+const Tweet = ({ name, tweet, setTweets, tweets }) => {
+  const deleteTweet = () => {
+    // Determine which tweet needs to be deleted
+    setTweets(tweets.filter((t) => t !== tweet));
+  };
+
   return (
     <div className="tweet">
       <h2>Name: {name}</h2>
-      <h3>{message}</h3>
-      <button>Delete</button>
+      <h3>{tweet}</h3>
+      <button onClick={() => deleteTweet()}>Delete</button>
       <button>Like</button>
     </div>
   );

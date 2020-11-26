@@ -3,13 +3,17 @@ import Tweet from "./Tweet";
 
 /* With JSX and props, we cannot pass directly from App() down to Tweet() so we have to perform what's known as props drilling and pass from App() to TweetList() to Tweet(). */
 
-const TweetList = ({ name, tweets }) => {
+const TweetList = ({ name, tweets, setTweets }) => {
   return (
     <div className="tweet-list">
-      <Tweet name={name} tweets={tweets} />
-      <Tweet name={name} tweets={tweets} />
-      <Tweet name={name} tweets={tweets} />
-      <Tweet name={name} tweets={tweets} />
+      {tweets.map((tweet) => (
+        <Tweet
+          setTweets={setTweets}
+          name={name}
+          tweet={tweet}
+          tweets={tweets}
+        />
+      ))}
     </div>
   );
 };
