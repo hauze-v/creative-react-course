@@ -5,13 +5,13 @@ import React from "react";
 const Tweet = ({ name, tweet, setTweets, tweets }) => {
   const deleteTweet = () => {
     // Determine which tweet needs to be deleted
-    setTweets(tweets.filter((t) => t !== tweet));
+    setTweets(tweets.filter((state) => state.id !== tweet.id));
   };
 
   return (
     <div className="tweet">
       <h2>Name: {name}</h2>
-      <h3>{tweet}</h3>
+      <h3>{tweet.message}</h3>
       <button onClick={() => deleteTweet()}>Delete</button>
       <button>Like</button>
     </div>

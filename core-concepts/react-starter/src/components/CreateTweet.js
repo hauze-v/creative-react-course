@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 /* When we're working with JSX, you cannot have HTML elements directly next to each other. You must encapsulate everything in a parent div */
 const CreateTweet = ({ textInput, setTextInput, tweets, setTweets }) => {
@@ -9,7 +10,7 @@ const CreateTweet = ({ textInput, setTextInput, tweets, setTweets }) => {
 
   const submitTweetHandler = (event) => {
     event.preventDefault(); // prevents the default behavior of a form refreshing the page on submit
-    setTweets([...tweets, textInput]);
+    setTweets([...tweets, { message: textInput, id: uuidv4() }]);
     setTextInput("");
   };
 
