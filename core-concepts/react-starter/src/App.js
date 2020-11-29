@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CreateTweet from "./components/CreateTweet";
 import TweetList from "./components/TweetList";
+import "./styles/App.css";
 
 function App() {
   // State (can only be passed down, not up)
